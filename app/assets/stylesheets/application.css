@@ -3,5 +3,11 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+
+ */
+ 
+/*
+ * The asterisk equalsign together is special as of Rails 3.1.
+ * the below line includes all files in stylesheets (overly aggressive for my needs)
+ * require_tree . 
 */

@@ -2,8 +2,17 @@
 <html>
 	<head>
 		<title><%= title %></title>
+		<%# for cross site request forgery protection %>
 		<%= csrf_meta_tag %>
-		<%= stylesheet_link_tag %>
+
+		<%# rails 3.1 serves all CSS files in app/assets/stylesheets %>
+		<%= stylesheet_link_tag "styles" %>
+		<!--[if lt IE 8]>
+			<%= stylesheet_link_tag 'IE_pre9' %>
+		<![endif]-->
+
+
+		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
 	<%= yield %>
