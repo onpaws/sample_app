@@ -1,0 +1,390 @@
+/*  
+Theme Name: Welly v1
+Theme URI: http://onpaws.com/welly
+Description: Theme for onpaws.com v1
+Version: 1.0
+Author: Pat Skinner
+Author URI: http://onpaws.com/welly
+*/
+
+/* Globals
+#222 dark gray default for text
+#636699 darkish blue for links
+#555 slightly lighter gray for cont	ent bg
+
+netbooks max vertical resolution in FF = 456px
+*/
+
+/* CSS (Re)set, customized and minimized (hat tip to Eric Meyer) */
+html,body{
+	margin: 0px;
+	padding: 0px;
+	color: #636669;
+	font-style: normal; 
+	text-rendering: optimizeLegibility; 
+	vertical-align: baseline;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 100%;
+}
+a img {
+	border: 0px;
+}
+ul,h1,h2,h3,h4,h5,h6,p {
+	margin: 0;
+}
+
+/* HTML5 elements in Firefox 3+, Safari 3+, Opera 9+, Chrome 1+ */
+/* Must be added into IE via JavaScript */
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+	display: block;
+}
+
+/* fonts */
+@font-face {
+    font-family: 'lindenhillregular';
+	src: url('../fonts/lindenhill-webfont.eot');
+    src: url('../fonts/lindenhill-webfont.eot?iefix') format('eot'),
+         url('../fonts/lindenhill-webfont.woff') format('woff'),
+         url('../fonts/lindenhill-webfont.ttf') format('truetype'),
+         url('../fonts/lindenhill-webfont.svg#webfontzjfqfupj') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.linden {
+	font-family: 'LindenHillRegular', 'Cochin', "Adobe Garamond Pro", Georgia, serif; 
+}
+@font-face {
+    font-family: 'orbitronblack';
+    src: url('../fonts/orbitron-black-webfont.eot');
+    src: url('../fonts/orbitron-black-webfont.eot?iefix') format('eot'),
+         url('../fonts/orbitron-black-webfont.woff') format('woff'),
+         url('../fonts/orbitron-black-webfont.ttf') format('truetype'),
+         url('../fonts/orbitron-black-webfont.svg#webfontmHBq8WOy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.orbitron {
+ 	font-family: 'OrbitronBlack', Helvetica, sans-serif; 
+}
+
+.sansserif {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+a {
+	color: #636699;
+
+	/*
+	text-decoration: none;
+	font-weight: bold;
+	color: #5991ae;
+	background-color: rgba(255,246,224,0.0);
+	-o-transition-property: background-color,color;
+	-webkit-transition-property: background-color,color;
+	-moz-transition-property: background-color,color;
+	transition-property: background-color,color;
+	 -o-transition-duration: 1s;
+	 -webkit-transition-duration: 1s;
+	 -moz-transition-duration: 1s;
+	 transition-duration: 1s;
+	 */
+}
+
+a:hover {
+	color: white;
+	text-shadow: #FFEB6B 0px 0px 6px;
+}
+a:visited {
+	color: #FFFFFF;
+}
+
+
+
+/* general */
+body {
+	/* font-family:LindenHillRegular, Georgia, Times New Roman, serif; */
+	font-weight:normal;
+	font-style:normal;
+	color:#222222;
+	font-size:12pt;
+	background: #00275E;
+}
+
+/* position */
+#container {
+	margin: 0 auto;
+	width: 960px;
+	background: #999;
+	/* border: 1px solid red; */
+	/* clear the floats */
+	/* http://blogs.sitepoint.com/2005/02/26/simple-clearing-of-floats/ */
+	/* overflow:auto; */
+
+
+	/* slows down Firefox 3.6 scrolling noticeably on 10.6.5  */
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 0 5px 5px#888;
+	box-shadow: 0 0 5px 5px #888;
+	
+}
+#page-header {
+	/* border:1px solid blue;
+	text-align: center; */
+	padding: 0 10px;
+	color: white;
+	/* text-shadow: #000000 0px 0px 6px; simple black drop shadow */
+  	text-shadow: 0 1px 0 #ccc, 	/* http://markdotto.com/playground/3d-text/ */
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+	
+	font-size: 30px;
+	/* background: #606F90 url('../images/banner.jpg') bottom; */
+	height: 70px;
+	line-height: 2em;
+}
+#main-nav {	
+	padding: 3px 0 4px 0;
+	font-family: orbitronblack;
+	
+ 	/* fallback (opera) */
+    background: #555555;
+    /* mozilla: */
+    background: -moz-linear-gradient(top, #555555, #111111);
+    /* chrome, safari:*/
+    background: -webkit-gradient(linear,
+                left top, left bottom, from(#555555), to(#111111));
+    /* msie */
+    filter: progid:dximagetransform.microsoft.gradient(
+                startcolorstr='#555555', endcolorstr='#111111', gradienttype=0);
+
+	/* border: 1px solid white; */
+	/* border-bottom: 1px solid #999999; */
+}
+.nav ul li {
+	display: inline;
+	padding: 0 0 0 40px;
+}
+.nav a {
+	text-decoration: none;
+}
+.nav a img {
+		vertical-align: middle;
+}
+/* nav links shouldn't be :visited */
+.nav a:visited {
+	color: 
+}
+
+#content {
+	/* border: 1px solid white; */
+	background-color: #147;
+}
+#main {
+	/* border: 1px solid purple; */
+	float: left;
+	width: 606px;
+	background-color: #FFEEE2;
+	padding: 10px 10px;
+	font-family: lindenhillregular;
+}
+#sidebar {
+	/* border: 1px solid red; */
+	float: right;
+	width: 314px;
+	background-color: #CCBBAA;
+	padding: 10px;
+}
+#page-footer {
+	clear: both;
+	background-color: #FFE;
+	padding: 10px;
+	font-size: 12px;	
+	color: gray;
+	text-align: right;
+	
+	/* fallback (opera) */
+    background: #111111;
+    /* mozilla: */
+    background: -moz-linear-gradient(top, #111111, #444444);
+    /* chrome, safari:*/
+    background: -webkit-gradient(linear,
+                left top, left bottom, from(#111111), to(#444444));
+    /* msie */
+    filter: progid:dximagetransform.microsoft.gradient(
+                startcolorstr='#111111', endcolorstr='#444444', gradienttype=0);
+
+}
+#page-footer a:hover {
+	color: black;
+}
+/* Star HTML IE6 hack  http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/ */
+* html #page-footer {
+height:1px;
+}
+
+/* general classes */
+.showcase {
+	margin: 10px 0 10px 0;
+	padding: 5px;
+
+	color: white;
+
+	border: 1px solid white;
+
+	border-radius: 15px 5px 15px 5px;
+	-moz-border-radius: 15px 5px 15px 5px;
+
+	/* box-shadow: xOffset yOffset blurDistance spreadDistance; */
+	-moz-box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 0 5px 5px#888;
+	box-shadow: 0 0 5px 5px #888;
+
+		
+	/* IE6-8 CSS3 support via PIE */
+	behavior: url('/js/pie.htc');
+
+	/* gradient generator http://projects.korrelboom.com/gradient-generator/#top|666699|111111 */
+	/* Opera */
+	background:
+	url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2JhKDEwMiwxMDIsMTUzLDEpOyIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOnJnYmEoMTcsMTcsMTcsMSk7IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjZ3JhZGllbnQpIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiAvPjwvc3ZnPg==);
+
+	/* Firefox */
+	background: -moz-linear-gradient( top, rgba(102,102,153,1), rgba(17,17,17,1) );
+
+	/* Chrome & Safari */
+	background: -webkit-gradient( linear, left top, left bottom, color-stop( 0, rgba(102,102,153,1) ), color-stop( 1, rgba(17,17,17,1) ) );
+
+	/* IE5.5 - IE7 */
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FF666699,EndColorStr=#FF111111);
+
+	/* IE8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FF666699,EndColorStr=#FF111111)";
+}
+
+.box_200 {	
+	width: 200px;
+}
+
+.footer {
+	font-size: 9pt;
+}
+
+/**** Speech Bubble Icons *****/
+.spch-bub-inside {
+  position: relative;
+}
+a.spch-bub-inside {
+  color: #00F;
+  text-decoration: none;
+}
+.spch-bub-inside em {
+  font-style: normal;
+}
+.spch-bub-inside em {
+  background: #00F;
+  color: #FFF;
+  padding: 0 0.4em;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: relative;
+}
+.spch-bub-inside .point {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 1.1em;
+  left: 0.4em;
+  display: block;
+  border-left: 0.45em solid #00F; 
+  border-bottom: 0.45em solid #FFF; /* IE fix */
+  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  overflow: hidden; /* IE fix */
+}
+a.spch-bub-inside:hover {
+  color: #F00;
+}
+a.spch-bub-inside:hover em {
+  cursor: pointer;
+  background: #F00;
+  color: #FF0;
+}
+a.spch-bub-inside:hover .point {
+  border-left: 0.5em solid #F00; 
+}
+
+
+/* CSS Style Guide
+ *
+el {
+  display: ;
+  visibility: ;
+  overflow: ;
+  direction: ;
+  unicode-bidi: ;
+ 
+  float: ;
+  clear: ;
+ 
+  position: ;
+  top: ;
+  right: ;
+  bottom: ;
+  left: ;
+  z-index: ;
+  clip: ;
+ 
+  width: ;
+  min-width: ;
+  max-width: ;
+  height: ;
+  min-height: ;
+  max-height: ;
+ 
+  margin: ;
+  border: ;
+  padding: ;
+  outline: ;
+ 
+  background: ;
+  color: ;
+ 
+  font: ;
+  font-family: ;
+  font-size: ;
+  font-style: ;
+  font-variant: ;
+  font-weight: ;
+  letter-spacing: ;
+  line-height: ;
+  text-align: ;
+  text-decoration: ;
+  text-indent: ;
+  text-transform: ;
+  vertical-align: ;
+  white-space: ;
+  word-spacing: ;
+ 
+  list-style: ;
+ 
+  table-layout: ;
+  caption-side: ;
+  border-collapse: ;
+  border-spacing: ;
+  empty-cells: ;
+ 
+  quotes: ;
+  counter-reset: ;
+  counter-increment: ;
+  content: ;
+}
+*/
