@@ -12,22 +12,11 @@
 			<%= javascript_include_tag 'html5shiv.js' %>
 		<![endif]-->
 
-
 		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
 	<div id="container">
-		<header id="page-header">
-		<%= image_tag("lantern.png", :alt => "site logo", :class => "round") %>
-		<span>My App</span>
-		</header> <!-- end page header div -->
-		<nav id="main-nav" class="nav">
-			<ul>
-				<li><%= link_to "Home", "#" %></li>
-				<li><%= link_to "Help", "#" %></li>
-				<li><%= link_to "Sign In", "#" %></li>
-			</ul>
-		</nav> <!-- end main-nav div -->
+		<%= render 'layouts/header+nav' %>
 		<div id="content">
 			<article id="main">
 				<%= yield %>
@@ -35,10 +24,8 @@
 			<aside id="sidebar">
 				&nbsp;
 			</aside>
-		<footer id="page-footer">
-			&nbsp;
-		</footer> <!-- end page footer -->
-	</div> <!-- end page content section -->
+		<%= render 'layouts/footer' %>
+		</div> <!-- end page content section -->
 	</div> <!-- end container div -->
 	</body>
 </html>

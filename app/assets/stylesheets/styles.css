@@ -131,9 +131,6 @@ body {
 .nav a {
 	text-decoration: none;
 }
-.nav a img {
-	vertical-align: middle;
-}
 /* nav links shouldn't be :visited */
 .nav a:visited {
 	color: 
@@ -141,7 +138,8 @@ body {
 
 #content {
 	/* border: 1px solid white; */
-	background-color: #CCC;
+	/* background color should match #sidebar's */
+	background-color: #CCBBAA;
 
 	/* to match the footer's rounded corners */
 	border-radius: 0px 0px 10px 10px;
