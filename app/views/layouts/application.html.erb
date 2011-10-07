@@ -7,16 +7,30 @@
 
 		<%# rails 3.1 serves all CSS files in app/assets/stylesheets %>
 		<%= stylesheet_link_tag "styles" %>
-		<!--[if lt IE 8]>
+		<!--[if lt IE 9]>
 			<%= stylesheet_link_tag 'IE_pre9' %>
+			<%= javascript_include_tag 'html5shiv.js' %>
 		<![endif]-->
 
 
 		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
-	<%= yield %>
-
+	<div id="container">
+		<header id="page-header">
+		<%= image_tag("logo.png", :alt => "site logo", :class => "round") %>
+		</header> <!-- end page header div -->
+		<nav id="main-nav" class="nav">
+			<ul>
+				<li><%= link_to "Home", "#" %></li>
+				<li><%= link_to "Help", "#" %></li>
+				<li><%= link_to "Sign In", "#" %></li>
+			</ul>
+		</nav> <!-- end main-nav div -->
+			<section class="content">
+		<%= yield %>
+		</section> <!-- end page content section -->
+	</div>
 	</body>
 </html>
 

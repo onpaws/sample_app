@@ -34,7 +34,7 @@ ul,h1,h2,h3,h4,h5,h6,p {
 }
 
 /* HTML5 elements in Firefox 3+, Safari 3+, Opera 9+, Chrome 1+ */
-/* Must be added into IE via JavaScript */
+/* Must be added into IE via JavaScript HTML5Shiv */
 article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
 	display: block;
 }
@@ -104,9 +104,8 @@ body {
 	height: 70px;
 	line-height: 2em;
 }
-#main-nav {	
+#main-nav {
 	padding: 3px 0 4px 0;
-	font-family: orbitronblack;
 	
  	/* fallback (opera) */
     background: #555555;
@@ -130,7 +129,7 @@ body {
 	text-decoration: none;
 }
 .nav a img {
-		vertical-align: middle;
+	vertical-align: middle;
 }
 /* nav links shouldn't be :visited */
 .nav a:visited {
@@ -147,7 +146,6 @@ body {
 	width: 606px;
 	background-color: #FFEEE2;
 	padding: 10px 10px;
-	font-family: lindenhillregular;
 }
 #sidebar {
 	/* border: 1px solid red; */
