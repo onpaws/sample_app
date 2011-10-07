@@ -1,11 +1,11 @@
 <header id="page-header">
-	<%= image_tag("lantern.png", :alt => "site logo", :class => "round") %>
+	<%= link_to logo, root_path %>
 	<span>My App</span>
 </header> <!-- end page header div -->
 <nav id="main-nav" class="nav">
 	<ul>
-		<li><%= link_to "Home", "#" %></li>
-		<li><%= link_to "Help", "#" %></li>
+		<li><%= link_to "Home", root_path %></li>
+		<li><%= link_to "Help", help_path %></li>
 		<li><%= link_to "Sign In", "#" %></li>
 	</ul>
 </nav> <!-- end main-nav div -->

@@ -1,7 +1,26 @@
 SampleApp::Application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/contact"
+  #physical files will be served over this. delete/rename index.html
+  root :to => 'pages#home'
+
+  #above line also enables use of root_path in link_to, i.e.
+  #<%= link_to "Home", root_path %>
+	
+  # mod_rewrite, Rails style
+  # pages#contact is an action (new to rails 3, merged from MERB)
+  match '/contact', :to => "pages#contact"
+  match '/about', :to => "pages#about"
+  match '/help', :to => "pages#help"
+
+  #match allows you to use XXX_path later in a View (template), i.e.
+  #<%= link_to "About", about_path %> spits out a 
+
+	##################
+  #Out of the box, we had
+  # get "pages/home"
+  # get "pages/about"...etc
+  #but turned off to avoid having /pages/ in URL
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
