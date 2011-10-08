@@ -1,4 +1,5 @@
 module ApplicationHelper
+	#functions that deliver commonly needed content or functionality
 
 	# Return a default title on a per-page basis
 	def title
@@ -11,7 +12,7 @@ module ApplicationHelper
 	end
 
 	def logo
-		image_tag("lantern.png", :alt => "site logo")
+		image_tag("lantern.png", :alt => "site logo") 
 	end
 
 end
