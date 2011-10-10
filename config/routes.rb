@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
-  #physical files will be served over this. delete/rename index.html
+  get "users/new"
+
+  #physical files take priority over this route. delete/rename index.html
   root :to => 'pages#home'
 
   #above line also enables use of root_path in link_to, i.e.
@@ -10,6 +12,11 @@ SampleApp::Application.routes.draw do
   match '/contact', :to => "pages#contact"
   match '/about', :to => "pages#about"
   match '/help', :to => "pages#help"
+  match '/signup', :to => "users#new"
+  #match 'signup' gives us the named route signup_path that we use in link_to
+
+  #typos lead to Routing Error uninitialized ____Controller
+  #i.e. if you use user#new instead of users#new
 
   #match allows you to use XXX_path later in a View (template), i.e.
   #<%= link_to "About", about_path %> spits out a 

@@ -232,6 +232,13 @@ height:1px;
 .button:visited {
 	color: #444;
 }
+.signup {
+	display: block;
+	text-align: center;
+	width: 400px;
+	margin: 10px auto;
+	font-size: 200%
+}
 
 
 .showcase {
