@@ -8,7 +8,7 @@ SampleApp::Application.routes.draw do
   #<%= link_to "Home", root_path %>
 	
   # mod_rewrite, Rails style
-  # pages#contact is an action (new to rails 3, merged from MERB)
+  # pages#contact = controller#action (new to rails 3, merged from MERB)
   match '/contact', :to => "pages#contact"
   match '/about', :to => "pages#about"
   match '/help', :to => "pages#help"

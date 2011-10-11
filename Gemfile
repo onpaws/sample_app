@@ -11,6 +11,8 @@ gem 'json'
 
 group :development do
 	gem 'rspec-rails'
+	#gem 'annotate'
+	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 group :test do
@@ -19,6 +21,7 @@ group :test do
 	gem 'webrat'
 end
 
+# Rails 3.1 introduced a new 'asset pipeline'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
