@@ -66,7 +66,7 @@ describe User do
 		
 	end
 
-	it "should rejectemail addresses identical up to case" do
+	it "should reject email addresses identical in case" do
 		upcased_email = "USER@EXAMPLE.COM"
 		upcased_email = @attr[:email].upcase
 		User.create!(@attr.merge(:email => upcased_email))
