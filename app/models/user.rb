@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
 						#format checks against the regex
 						:uniqueness => { :case_sensitive => false }
 						#uniquess being true is implicit
-						#warning: this on its own DOES NOT guarantee uniqueness. use an index also. 
+						#warning: this on its own DOES NOT guarantee uniqueness. use an index 
 						
 end

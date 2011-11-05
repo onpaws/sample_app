@@ -7,12 +7,12 @@
 
 		<%# rails 3.1 serves all CSS files in app/assets/stylesheets %>
 		<%= stylesheet_link_tag "styles" %>
+		<%= javascript_include_tag "application" %>
+
 		<!--[if lt IE 9]>
 			<%= stylesheet_link_tag 'IE_pre9' %>
 			<%= javascript_include_tag 'html5shiv.js' %>
 		<![endif]-->
-
-		<%= javascript_include_tag "application" %>
 	</head>
 	<body>
 	<div id="container">
@@ -25,6 +25,7 @@
 				&nbsp;
 			</aside>
 		<%= render 'layouts/footer' %>
+		<%= debug(params) if Rails.env.development? %>
 		</div> <!-- end page content section -->
 	</div> <!-- end container div -->
 	</body>

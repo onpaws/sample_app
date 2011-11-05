@@ -40,7 +40,8 @@ describe "LayoutLinks" do
 		response.should have_selector('title', :content => "Sign up")
 
 		response.should have_selector('a[href="/"]>img')
-				#the >img means not only a root link, but the next tag inside is an <img> tag
+				#the > means inside the <a> tag there should be an img tag
+				#lesson 5, filling in the layout, 14:20 in the tutorial
 
 	end
 
