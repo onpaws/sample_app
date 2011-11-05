@@ -11,21 +11,18 @@ group :development do
 	gem 'rspec-rails'
 	#gem 'annotate'
 	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-        gem 'sqlite3' #doesn't work on Heroku+cedar stack
+	gem 'sqlite3' #doesn't work on Heroku+cedar stack
 end
 
 group :test do
 	gem 'rspec'
 	gem 'spork'
-        gem 'webrat'
+	gem 'webrat'
 end
 
-'
-end
-
-roku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
-group :production do
-        gem 'pg'
+#for Heroku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
+group :production do 
+	gem 'pg'
 end
 
 # Rails 3.1 introduced a new 'asset pipeline'
