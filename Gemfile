@@ -21,6 +21,10 @@ group :test do
 	gem 'webrat'
 end
 
+#from Heroku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
+group :production do 
+	gem 'pg'
+end
 
 # Rails 3.1 introduced a new 'asset pipeline'
 # Gems used only for assets and not required
