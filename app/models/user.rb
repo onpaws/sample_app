@@ -40,4 +40,45 @@ class User < ActiveRecord::Base
 						 #:confirmation in a validates statement adds an "_confirmation" virtual attribute
 						 :length => { :within => 6..64 }
 						 #:length => { :minimum => 6, :maximum => 64 } also works
+
+	#register a callback so the encrypted password attribute is created before the user is saved
+	before_save :encrypt_password		#apparently this symbol (:encrypted_password) refers to a function. hm.
+
+
+	def has_password?(submitted_password)
+		self.encrypted_password == encrypt(submitted_password)
+		#technically, we don't need self. since there is no assignment.
+	end
+
+	def User.authenticate(email, submitted_password)
+		#we use User.authenticate - its a CLASS METHOD
+		user = self.find_by_email(email)
+			   #can omit self since its a class method
+		return nil if user.nil?
+		return user if user.has_password?(submitted_password)
+	end
+
+	#encrypt_password is only needed within the User object, so we make it private
+	private
+		def encrypt_password
+			self.salt = make_salt if new_record?
+									 #ActiveRecord method that does what the tin says
+			
+			self.encrypted_password = encrypt(self.password)
+											  #access password attribute for this user
+			#if you say self.encrypted_password ruby knows you mean the local password variable
+		end
+
+		def encrypt(string)
+			secure_hash("#{self.salt}--#{string}")
+		end
+		
+		def secure_hash(string)
+			Digest::SHA2.hexdigest(string)
+		end
+		
+		def make_salt
+			secure_hash("#{Time.now.utc}--#{password}")
+		end
+
 end
