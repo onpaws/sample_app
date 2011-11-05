@@ -5,23 +5,25 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'pg'			#for heroku
 gem 'json'
 
 group :development do
 	gem 'rspec-rails'
 	#gem 'annotate'
 	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+        gem 'sqlite3' #doesn't work on Heroku+cedar stack
 end
 
 group :test do
 	gem 'rspec'
 	gem 'spork'
-	gem 'webrat'
+        gem 'webrat'
 end
 
-#from Heroku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
+'
+end
+
+roku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
 group :production do
         gem 'pg'
 end
