@@ -1,7 +1,5 @@
 SampleApp::Application.routes.draw do
-	resources :users
-  get "users/new"
-  get "users/show"
+  resources :users  #gives us all the REST-ful URLs (new, show, etc)
 
   #physical files take priority over this route. delete/rename index.html
   root :to => 'pages#home'

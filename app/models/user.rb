@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
 	#should do this as soon as model is created.
 	attr_accessible :name, :email
 
+	#a virtual attribute for the password
+	attr_accessor :password
+
 	#define a email validator regex
 	#see http://ruby.railstutorial.org/chapters/modeling-and-viewing-users-one#table:email_regex
 	#\A is beginning of string, \z is end, /i insensitive
