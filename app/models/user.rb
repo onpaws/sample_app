@@ -2,19 +2,20 @@
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
 #
 
 class User < ActiveRecord::Base
 	#Important! Limit what attributes are accessible
 	#should do this as soon as model is created.
-	attr_accessible :name, :email
+	attr_accessible :name, :email, :password, :password_confirmation
 
-	#a virtual attribute for the password
+	#a virtual attribute for the password. makes a getter and setter.
 	attr_accessor :password
 
 	#define a email validator regex
@@ -33,5 +34,10 @@ class User < ActiveRecord::Base
 						:uniqueness => { :case_sensitive => false }
 						#uniquess being true is implicit
 						#warning: this on its own DOES NOT guarantee uniqueness. use an index 
-						
+	
+	validates :password, :presence => true,
+						 :confirmation => true,
+						 #:confirmation in a validates statement adds an "_confirmation" virtual attribute
+						 :length => { :within => 6..64 }
+						 #:length => { :minimum => 6, :maximum => 64 } also works
 end

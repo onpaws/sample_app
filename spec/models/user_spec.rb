@@ -2,19 +2,29 @@
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
 #
 
 require 'spec_helper'
 
+#PAWS Note: to make a pending test, just declare an 
+#	it "should do something"
+#without the do ... end part
+
 describe User do
 	
 	before(:each) do
-		@attr = { :name => "Bork Bork", :email => "swedish@chef.org" }
+		@attr = { 
+			:name => "Bork Bork", 
+			:email => "swedish@chef.org", 
+			:password => "p@ssword", 
+			:password_confirmation => "p@ssword"
+		}
 	end
 	
 	it "should create a new instance given valid example attributes" do
@@ -78,6 +88,44 @@ describe User do
 		it "should have a password attribute" do
 			User.new(@attr).should respond_to(:password)
 		end
+
+		it "should have a password confirmation attribute" do
+			User.new(@attr).should respond_to(:password_confirmation)
+		end
 	end
+
+	describe "password validations" do
+		it "should require a password" do
+			User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
+		end
+	
+		it "should require a matching password confirmation" do
+			User.new(@attr.merge(:password_confirmation => "invalid")).should_not be_valid
+		end
+
+		it "should reject short passwords" do
+			shortPassword = "a" * 5
+			hashToTest = @attr.merge(:password => shortPassword, :password_confirmation => shortPassword)
+			User.new(hashToTest).should_not be_valid
+		end
+		
+		it "should reject passwords that are too long" do
+			longPassword = "a" * 65
+			hashToTest = @attr.merge(:password => longPassword, :password_confirmation => longPassword)
+			User.new(hashToTest).should_not be_valid
+		end
+	describe "password encryption" do
+		before(:each) do
+			@user = User.create!(@attr)
+		end
+
+		it "should have an encrypted password attribute" do
+			@user.should respond_to(:encrypted_password)
+		end
+	end
+
+
+	end
+
 
 end
