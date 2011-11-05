@@ -21,6 +21,11 @@ group :test do
 	gem 'webrat'
 end
 
+group :production do
+	gem 'therubyracer-heroku'
+end
+
+
 # Rails 3.1 introduced a new 'asset pipeline'
 # Gems used only for assets and not required
 # in production environments by default.
