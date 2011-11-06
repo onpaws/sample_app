@@ -18,6 +18,8 @@ group :test do
 	gem 'rspec'
 	gem 'spork'
 	gem 'webrat'
+	#gem 'factory_girl_rails', '1.0'
+	gem 'factory_girl_rails'
 end
 
 #for Heroku http://devcenter.heroku.com/articles/how-do-i-use-sqlite3-for-development
