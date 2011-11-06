@@ -40,7 +40,7 @@ article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,sec
 }
 
 a {
-	color: #B2CCFF;
+	color: #0066B5;
 }
 
 a:hover {
@@ -48,7 +48,7 @@ a:hover {
 	text-shadow: #FFEB6B 0px 0px 6px;
 }
 a:visited {
-	color: #B2CCAA;
+	color: #1177C6;
 }
 
 

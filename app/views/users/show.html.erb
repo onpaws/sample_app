@@ -1,5 +1,15 @@
+<article id="main">
 <h1>
 <%# gravatar_for defined in helpers/users_helper.rb %>
 <%= gravatar_for @user %>
 <%= @user.name %>
 </h1>
+</article> 
+
+<aside id="sidebar">
+<strong>Name</strong> <%= @user.name %><br />
+<strong>URL</strong> <%= link_to user_path(@user), @user %>
+</aside>
+
+
+
