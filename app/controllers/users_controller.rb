@@ -8,5 +8,6 @@ class UsersController < ApplicationController
 
   def new
 	  @title = "Sign up"
+	  @user = User.new					#save the params hash for the create function, not here
   end
 end

@@ -240,6 +240,9 @@ height:1px;
 	font-size: 200%
 }
 
+div.field, div.action {
+	margin: 0 0 10px 20px;
+}
 
 .showcase {
 	margin: 10px 0 10px 0;
@@ -288,6 +291,7 @@ height:1px;
 }
 
 /**** Speech Bubble Icons *****/
+/*
 .spch-bub-inside {
   position: relative;
 }
@@ -316,9 +320,9 @@ a.spch-bub-inside {
   display: block;
   border-left: 0.45em solid #00F; 
   border-bottom: 0.45em solid #FFF; /* IE fix */
-  border-bottom: 0.45em solid rgba(0,0,0,0); 
+/*  border-bottom: 0.45em solid rgba(0,0,0,0); 
   overflow: hidden; /* IE fix */
-}
+/*}
 a.spch-bub-inside:hover {
   color: #F00;
 }
@@ -330,7 +334,7 @@ a.spch-bub-inside:hover em {
 a.spch-bub-inside:hover .point {
   border-left: 0.5em solid #F00; 
 }
-
+*/
 
 /* CSS Style Guide
  *
