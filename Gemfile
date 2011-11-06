@@ -7,6 +7,9 @@ gem 'rails', '3.1.0'
 
 gem 'json'
 
+#for the user profile pic
+gem 'gravatar_image_tag'
+
 group :development do
 	gem 'rspec-rails'
 	#gem 'annotate'
