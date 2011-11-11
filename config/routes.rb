@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
-  resources :users  #gives us all the REST-ful URLs (new, show, etc)
-
+  resources :users		#gives us all the REST-ful URLs (new, show, etc)
+  resources :sessions, :only => [:new, :create, :destroy]	#restrict to new, create, and destroy only
   #physical files take priority over this route. delete/rename index.html
   root :to => 'pages#home'
 
@@ -14,6 +14,12 @@ SampleApp::Application.routes.draw do
   match '/help', :to => "pages#help"
   match '/signup', :to => "users#new"
   #match 'signup' gives us the named route signup_path that we use in link_to
+
+  match '/signin', :to => "sessions#new"
+  match '/login', :to => "sessions#new"
+  match '/signout', :to => "sessions#destroy"
+  match '/logout', :to => "sessions#destroy"
+
 
   #typos lead to Routing Error uninitialized ____Controller
   #i.e. if you use user#new instead of users#new

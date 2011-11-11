@@ -3,6 +3,7 @@
 
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %>
+	<%#  #render works with activerecord objects %>
 
 	<div class="field">
 		<%= f.label :name %><br />
