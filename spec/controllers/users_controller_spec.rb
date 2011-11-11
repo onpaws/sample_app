@@ -39,9 +39,6 @@ describe UsersController do
 		response.should have_selector('aside>a', :content => user_path(@user), 
 									             :href	  => user_path(@user))
 	  end
-
-
-
   end
 
   describe "GET 'new'" do
@@ -56,5 +53,58 @@ describe UsersController do
 			response.should have_selector("title", :content => "Sign up")
 	end
   end
+  
+  describe "POST 'create'" do	  
+	  
+	describe "failure" do
+		before(:each) do
+			@attr = { :name => "", :email => "", :password => "", :password_confirm => "" }
+		end
+		
+		it "should have the right title" do
+			post :create, :user => @attr
+			response.should have_selector('title', :content => "Sign up") 
+			#should be same as sign up page
+		end
+
+		it "should render the new page" do
+			post :create, :user => @attr
+			response.should render_template('new')
+		end
+
+		it "should not create the user" do
+			lambda do 
+				post :create, :user => @attr
+			end.should_not change(User, :count)
+		end
+	end
+
+	describe "success" do
+		before(:each) do
+			@attr =  { :name => "Foo User", :email => "fuser@example.com", :password => "secret1", :password_confirm => "secret1" }
+		end
+
+		it "should create a user" do
+			lambda do 
+				post :create, :user => @attr
+			end.should change(User, :count).by(1)
+		
+		end
+		
+		it "should redirect to the user profile page" do
+			post :create, :user => @attr
+			response.should redirect_to(user_path(assigns(:user))) 
+												  #assigns(:user) pulls out actual user object...somehow.
+		end
+
+		it "should display the interstitial (in ruby lingo: flash) welcome message" do
+			post :create, :user => @attr
+			flash[:success].should =~ /welcome to my rails app/i
+		end
+
+	end
+
+  end
+
 
 end
