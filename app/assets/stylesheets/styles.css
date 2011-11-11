@@ -288,13 +288,20 @@ div.field, div.action {
 /* Success for interstitial (flash) message */
 .flash {
 	padding: 10px 0 9px 20px;
+	width: 600px;
 	font-style: italic;
+	border-radius: 0 10px 0 0;
 }
 
 .success {
 	background: #E6EFC2;
 	color: #264409;
 	border-color: #C6D880;
+}
+.error {
+	background: #FF6868;
+	color: #880000;
+	border-bottom: 1px solid gray;
 }
 
 .showcase {
