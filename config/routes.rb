@@ -1,6 +1,7 @@
 SampleApp::Application.routes.draw do
   resources :users		#gives us all the REST-ful URLs (new, show, etc)
   resources :sessions, :only => [:new, :create, :destroy]	#restrict to new, create, and destroy only
+  
   #physical files take priority over this route. delete/rename index.html
   root :to => 'pages#home'
 

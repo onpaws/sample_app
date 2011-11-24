@@ -52,11 +52,17 @@ class User < ActiveRecord::Base
 	end
 
 	def User.authenticate(email, submitted_password)
-		#we use User.authenticate - its a CLASS METHOD
+		#User.authenticate means its a CLASS METHOD (as opposed to just authenticate())
 		user = self.find_by_email(email)
 			   #can omit self since its a class method
 		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
+	end
+
+	def User.authenticate_with_salt(id, cookie_salt)
+		user = User.find_by_id(id)
+		(user && user.salt == cookie_salt) ? user : nil
+		#if user returns true AND user.salt matches the cookie salt, return the user object
 	end
 
 	#encrypt_password is only needed within the User object, so we make it private
