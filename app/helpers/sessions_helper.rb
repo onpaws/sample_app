@@ -22,10 +22,16 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	def sign_out
+		cookies.delete(:remember_token)
+		#current_user = nil		#some people report self. being necessary
+		self.current_user = nil
+	end
+
 	private
 		def user_from_remember_token
 			User.authenticate_with_salt(*remember_token)
-										# 'unwraps' the array
+										# the * 'unwraps' the array
 		end
 		
 		def remember_token

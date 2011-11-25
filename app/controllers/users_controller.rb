@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
 	if @user.save
 		#handle the save
+		sign_in(@user)
 		#flash[:success] = "Welcome to my Demo App" #older way to do a flash
 		redirect_to @user, :flash => { :success => "Welcome to my Rails App" }
 		#identical to: redirect_to user_path(@user)
