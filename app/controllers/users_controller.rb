@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_filter :authenticate, :only => [:edit, :update]
+		#second param (options hash) limits which actions get the filter
   def show
 	  #@user = User.find 1				#returns the user whose ID is equal to 1
 	  
@@ -50,5 +52,10 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  private
+    def authenticate
+		deny_access unless signed_in? #deny_access defined in sessions_helper.rb
+	end
 
 end

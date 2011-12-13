@@ -303,6 +303,11 @@ div.field, div.action {
 	color: #880000;
 	border-bottom: 1px solid gray;
 }
+.notice {
+	background: #E6DFC8;
+	color: #333333;
+	border-bottom: 1px solid gray;
+}
 
 .showcase {
 	margin: 10px 0 10px 0;
