@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :only => [:edit, :update]
+	before_filter :authenticate, :only => [:edit, :update, :index]
 		#second param (options hash) limits which actions get the filter
 	before_filter :correct_user, :only => [:edit, :update]
+
+  def index
+	  @users = User.all
+	  @title = "All users"
+  end
+
   def show
 	  #@user = User.find 1				#returns the user whose ID is equal to 1
 	  
@@ -46,9 +52,6 @@ class UsersController < ApplicationController
 		  @title = "Edit user"
 		  render 'edit'
 	  end
-  end
-
-  def index
   end
 
   def destroy
