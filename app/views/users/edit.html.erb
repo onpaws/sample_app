@@ -1,21 +1,26 @@
 <article id="main">
-<h1>Sign up</h1>
+<h1>Edit user</h1>
 
 <%= form_for(@user) do |f| %>
 	<%= render 'fields', :f => f %>
 	<%# #render doesn't require the underscore %>
 	<%# #pass in the f value. ':f' must have same name in the partial %>
-
 	<div class="actions">
-		<%= f.submit "Sign up" %>
+		<%= f.submit "Update" %>
 	</div>
 
 <% end %>
+<div>
+	<%= gravatar_for @user %>
+	<a href="http://gravatar.com/emails" target="_blank">Change</a>
+</div>
+
 
 </article>
 
 <aside id="sidebar">
 	&nbsp;
 </aside>
+
 
 

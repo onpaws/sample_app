@@ -86,11 +86,79 @@ describe UsersController do
 		end
 		it "should display the interstitial (in ruby lingo: flash) welcome message" do
 			post :create, :user => @attr
-			flash[:success].should =~ /welcome to my rails app/i
+			flash[:success].should =~ /welcome to pawstwit/i
 		end
 		it "should sign the user in" do
 			post :create, :user => @attr
 			controller.should be_signed_in
+		end
+	end
+  end
+  
+  describe "GET 'edit'" do
+	before(:each) do
+	  @user = Factory(:user)
+	  test_sign_in(@user)
+	end
+
+	it "should be successful" do
+		get :edit, :id => @user
+		response.should be_success
+	end
+
+	it "should have the right title" do
+		get :edit, :id => @user
+		response.should have_selector("title", :content => "Edit user")
+	end
+
+	it "should have a link to change the gravatar" do
+		get :edit, :id => @user
+		response.should have_selector("a", :href => "http://gravatar.com/emails", :content => "Change")
+	end
+
+  end
+
+  describe "PUT 'update'" do
+	before(:each) do
+	  @user = Factory(:user)
+	  test_sign_in(@user)
+	end
+	  
+	describe "failure" do
+		before(:each) do
+			@attr = { :name => "", :email => "", 
+					  :password => "", :password_confirm => "" }
+		end
+
+		it "should render the 'edit' page" do
+			put :update, :id => @user, :user => @attr
+			response.should render_template('edit')
+		end
+
+		it "should have the right title" do
+			put :update, :id => @user, :user => @attr
+			response.should have_selector("title", :content => "Edit user")
+		end
+	end
+
+	describe "success" do
+		before(:each) do
+			@attr = { :name => "Freddy Stardust", :email => "fs@maily.com", 
+					  :password => "yukyukyuk", :password_confirm => "yukyukyuk" }
+		end
+
+		it "should actually change the user's attributes" do
+			put :update, :id => @user, :user => @attr
+			user = assigns(:user) #reaches inside controller
+			@user.reload	#pulls values out of database
+			@user.name.should == user.name
+			@user.email.should == user.email
+			@user.encrypted_password.should == user.encrypted_password
+		end
+
+		it "should have a flash message" do
+			put :update, :id => @user, :user => @attr
+			flash[:success].should =~ /Update/i
 		end
 	end
   end
