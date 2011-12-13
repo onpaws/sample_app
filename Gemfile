@@ -10,11 +10,15 @@ gem 'json'
 #for the user profile pic
 gem 'gravatar_image_tag'
 
+#for paginating through long lists
+gem 'will_paginate'
+
 group :development do
 	gem 'rspec-rails'
 	#gem 'annotate'
 	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 	gem 'sqlite3' #doesn't work on Heroku+cedar stack
+	gem 'faker'
 end
 
 group :test do

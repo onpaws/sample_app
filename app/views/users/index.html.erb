@@ -1,10 +1,18 @@
 <h1>All users</h1>
 
+<%= will_paginate %>
+<%# will_paginate in a given controller automatically looks for an instance variable of the same name %>
 <ul class="users">
-	<% @users.each do |user| %>
-		<li>
-		<%= gravatar_for user, :size => 25 %>
-		<%= link_to user.name, user %>	
-		</li>
-	<% end %>
+	
+	<%# METHOD 3 - works as long as its enumerable (can run .each) %>
+	<%= render @users %>
+
+	<%# @users.each do |user| %>
+		<%# METHOD 1 %>
+		<%#= render 'user', :user => user #manually coding it %>
+		<%# METHOD 2 %>
+		<%#= render user %>
+		<%#		yes, somehow rails knows to render the _user partial AND pass the user variable %>
+	<%# end %>
 </ul>
+<%= will_paginate %>
