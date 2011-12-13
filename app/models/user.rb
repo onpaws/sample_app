@@ -78,6 +78,7 @@ class User < ActiveRecord::Base
 
 		def encrypt(string)
 			secure_hash("#{self.salt}--#{string}")
+						#attribute corresponding to that user
 		end
 		
 		def secure_hash(string)

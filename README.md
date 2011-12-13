@@ -4,3 +4,8 @@ This is a sample RoR app written by [patrick](http://onpaws.com/) following the 
 
 Heroku pushes are semi-regular. 
 [Heroku mirror](pawstwit.heroku.com)
+
+developer note:
+if you work on this with RVM, run
+rvm use --default 1.9.3
+		#where 1.9.3 is your version

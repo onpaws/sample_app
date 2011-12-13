@@ -54,7 +54,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  #Added per video 9, signing out
+  #Added per video 9, signing out. baller 8:10 in.
 	def test_sign_in(user)
 		controller.sign_in(user)
 	end

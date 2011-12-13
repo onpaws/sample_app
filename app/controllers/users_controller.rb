@@ -19,8 +19,9 @@ class UsersController < ApplicationController
 		#handle the save
 		sign_in(@user)
 		#flash[:success] = "Welcome to my Demo App" #older way to do a flash
-		redirect_to @user, :flash => { :success => "Welcome to my Rails App" }
-		#identical to: redirect_to user_path(@user)
+		redirect_to @user, :flash => { :success => "Welcome to pawstwit, written in Ruby on Rails" }
+			#from within controller, the above line does same as: redirect_to user_path(@user)
+			#ruby just knows what to do with a naked @user
 	else
 		@title = "Sign up"
 		render 'new'

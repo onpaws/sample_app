@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 	  user = User.authenticate(params[:session][:email],
 							   params[:session][:password])
 	  if user.nil?
-		flash.now[:error] = "Invalid logon"
+		flash.now[:error] = "I'm afraid that was a less than valid logon."
 		@title = "Sign in"
 		render "new"
 	  else
@@ -20,5 +20,4 @@ class SessionsController < ApplicationController
 	  sign_out
 	  redirect_to(root_path)
   end
-
 end
