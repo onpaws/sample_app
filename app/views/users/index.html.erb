@@ -4,7 +4,7 @@
 <%# will_paginate in a given controller automatically looks for an instance variable of the same name %>
 <ul class="users">
 	
-	<%# METHOD 3 - works as long as its enumerable (can run .each) %>
+	<%# METHOD 3 - renders _users partial, works as long as its enumerable (can run .each) %>
 	<%= render @users %>
 
 	<%# @users.each do |user| %>
