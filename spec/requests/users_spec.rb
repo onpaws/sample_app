@@ -41,6 +41,7 @@ describe "Users" do
   end
 
   describe "signin" do
+
 	  describe "failure" do
 		it "should not sign the user in" do
 			visit signin_path
@@ -51,6 +52,7 @@ describe "Users" do
 			response.should render_template('sessions/new')
 		end
 	  end
+
 	  describe "success" do
 		it "should sign the user in" do
 			user = Factory(:user)

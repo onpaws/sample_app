@@ -3,7 +3,7 @@
 <p>Please login.</p>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
-			<%# :session parameter first gets you the prefix in for, id and name attributes of the form elements %>
+	<%# :session parameter gets you <input id="session_email"> (for, id and name attributes) %>
 	<div class="field">
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>

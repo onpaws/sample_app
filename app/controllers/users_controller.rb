@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :authenticate, :only => [:edit, :update, :index, :destroy]
+		#before_filter gets a function that returns true or false
 		#second param (options hash) limits which actions get the filter
 	before_filter :correct_user, :only => [:edit, :update] 
 	before_filter :admin_user, :only => :destroy
@@ -72,7 +73,9 @@ class UsersController < ApplicationController
 	end
 
 	def admin_user
-		redirect_to(root_path) unless current_user.admin?
+		user = User.find(params[:id])
+		redirect_to(root_path) unless (current_user.admin? && !current_user?(user))
+		#redirect_to(root_path) if (!current_user.admin? || current_user(@user))
 	end
 		
 end

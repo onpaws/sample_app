@@ -77,22 +77,27 @@ describe UsersController do
 		#FYI, can also do get :show, :id => @user  #rails is smart enough to use @user.id
 		response.should be_success
 	  end
+
 	  it "should find the right user" do
 		get :show, :id => @user.id
 		assigns(:user).should == @user
 	  end
+
 	  it "should have the right title" do
 		get :show, :id => @user
 		response.should have_selector('title', :content => @user.name)
 	  end
+
 	  it "should have the user's name" do 
 		  get :show, :id => @user
 		  response.should have_selector('h1', :content => @user.name)
 	  end
+
 	  it "should have a profile image (gravatar)" do 
 		  get :show, :id => @user
 		  response.should have_selector('h1>img', :class => "gravatar")
 	  end
+
 	  it "should have the correct URL" do
 		get :show, :id => @user
 		response.should have_selector('aside>a', :content => user_path(@user), 
@@ -144,15 +149,18 @@ describe UsersController do
 			end.should change(User, :count).by(1)
 		
 		end
+
 		it "should redirect to the user profile page" do
 			post :create, :user => @attr
 			response.should redirect_to(user_path(assigns(:user))) 
 												#assigns(:user) pulls out actual user object...somehow.
 		end
+
 		it "should display the interstitial (in ruby lingo: flash) welcome message" do
 			post :create, :user => @attr
 			flash[:success].should =~ /welcome to pawstwit/i
 		end
+
 		it "should sign the user in" do
 			post :create, :user => @attr
 			controller.should be_signed_in
@@ -285,23 +293,28 @@ describe UsersController do
 		end
 
 		describe "as an admin user" do
-			
 			before(:each) do
-				admin = Factory(:user, :email => "admin@example.com", :admin => true)
+				@admin = Factory(:user, :email => "admin@example.com", :admin => true)
 																	   #Factories don't care about attr_accessible
+				test_sign_in(@admin)
 			end
-
-			it "should destroy the user" do
+  			it "should destroy the user" do
 				lambda do
 					delete :destroy, :id => @user
-				end.should change(User, :count).by(-1)	
+				end.should change(User, :count).by(-1)
 			end
 
-			it "should redirect to the user's page" do
+			it "should redirect to the users page [index]" do
 				delete :destroy, :id => @user
-				flash[:success].should =~ /destroyed/i
+				flash[:success].should =~ /dereted/i
 				response.should redirect_to(users_path)
 			end	
+			
+			it "should not be able to destroy itself" do
+				lambda do
+					delete :destroy, :id => @admin
+				end.should_not change(User, :count)
+			end
 		end
 	end
 end

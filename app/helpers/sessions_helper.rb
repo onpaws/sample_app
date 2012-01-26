@@ -14,6 +14,7 @@ module SessionsHelper
 	end
 	
 	def current_user
+		#instance variables only exist for one page request - we can't simply return @current_user here
 		@current_user ||= user_from_remember_token
 					   #if we use current_user more than once, it saves us a database hit
 	end

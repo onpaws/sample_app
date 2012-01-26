@@ -7,5 +7,8 @@
 </ul>
 </nav>
 <span> &copy; Pat Skinner </span>
+<% if @user %>
+<span><br> signed in as <%= @user.name %></span>
+<% end %>
 </footer> <!-- end page footer -->
 

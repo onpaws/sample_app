@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 	  if user.nil?
 		flash.now[:error] = "I'm afraid that logon was slightly invalid."
 		@title = "Sign in"
-		render "new"
+		render "new"		#render the 'new' page
 	  else
 		sign_in user
 		#redirect_to user
