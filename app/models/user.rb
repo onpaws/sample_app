@@ -20,6 +20,15 @@ class User < ActiveRecord::Base
 	#a virtual attribute for the password. makes a getter and setter.
 	attr_accessor :password
 
+	has_many :microposts, :dependent => :destroy
+						   #if you delete a user, it deletes its corresponding microposts
+						   #see Lesson 11:User microposts @ 26:00
+
+	#register a callback so the encrypted password attribute is created before the user is saved
+	before_save :encrypt_password		#apparently this symbol (:encrypted_password) refers to a function. hm.
+
+
+
 	#define a email validator regex
 	#see http://ruby.railstutorial.org/chapters/modeling-and-viewing-users-one#table:email_regex
 	#\A is beginning of string, \z is end, /i insensitive
@@ -43,8 +52,6 @@ class User < ActiveRecord::Base
 						 :length => { :within => 6..64 }
 						 #:length => { :minimum => 6, :maximum => 64 } also works
 
-	#register a callback so the encrypted password attribute is created before the user is saved
-	before_save :encrypt_password		#apparently this symbol (:encrypted_password) refers to a function. hm.
 
 
 	def has_password?(submitted_password)
