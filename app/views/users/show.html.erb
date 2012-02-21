@@ -4,11 +4,19 @@
 <%= gravatar_for @user %>
 <%= @user.name %>
 </h1>
+<% if @user.microposts.any? %>
+	<table class="microposts" summary="user microposts">
+		<%= render @microposts %>
+	</table>
+	<%= will_paginate @microposts %>
+	<%# means we have to define @microposts in the user controller and a _microposts partial %>
+<% end %>
 </article> 
 
 <aside id="sidebar">
 <strong>Name</strong> <%= @user.name %><br />
-<strong>URL</strong> <%= link_to user_path(@user), @user %>
+<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+<strong>Microposts</strong> <%= @user.microposts.count %>
 </aside>
 
 

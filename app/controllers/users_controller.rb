@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 	  #@user = User.find 1				#returns the user whose ID is equal to 1
 	  
 	  @user = User.find(params[:id])	#params is a function that returns params from the URL
+	  @microposts = @user.microposts.paginate(:page => params[:page]) 
+									 #sets up pagination. needs corresponding will_paginate in the view template
 	  @title = @user.name
   end
 

@@ -20,5 +20,12 @@ namespace :db do
 						:password => password,
 						:password_confirmation => password)
 		end
+
+		User.all(:limit => 6).each do |user| 
+			50.times do 
+				user.microposts.create!(:content => Faker::Lorem.sentence(5))
+				#TODO: why is it user.microposts and not user.micropost?
+			end
+		end
 	end
 end

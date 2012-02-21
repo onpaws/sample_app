@@ -351,59 +351,69 @@ ul.users li {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FF666699,EndColorStr=#FF111111)";
 }
 
-.box_200 {	
-	width: 200px;
-}
 
 .footer {
 	font-size: 9pt;
 }
 
-/**** Speech Bubble Icons *****/
-/*
-.spch-bub-inside {
-  position: relative;
+
+/* micropost styling - courtesy of http://ruby.railstutorial.org/chapters/user-microposts */
+
+h1.micropost {
+  margin-bottom: 0.3em;
 }
-a.spch-bub-inside {
-  color: #00F;
+
+table.microposts {
+  margin-top: 1em;
+}
+
+table.microposts tr {
+  height: 70px;
+}
+
+table.microposts tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.microposts tr td.micropost {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.microposts tr td.micropost span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
   text-decoration: none;
 }
-.spch-bub-inside em {
-  font-style: normal;
-}
-.spch-bub-inside em {
-  background: #00F;
-  color: #FFF;
-  padding: 0 0.4em;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  position: relative;
-}
-.spch-bub-inside .point {
-  width: 0;
-  height: 0;
+
+div.user_info span.user_name {
   position: absolute;
-  top: 1.1em;
-  left: 0.4em;
-  display: block;
-  border-left: 0.45em solid #00F; 
-  border-bottom: 0.45em solid #FFF; /* IE fix */
-/*  border-bottom: 0.45em solid rgba(0,0,0,0); 
-  overflow: hidden; /* IE fix */
-/*}
-a.spch-bub-inside:hover {
-  color: #F00;
 }
-a.spch-bub-inside:hover em {
-  cursor: pointer;
-  background: #F00;
-  color: #FF0;
+
+div.user_info span.microposts {
+  font-size: 80%;
 }
-a.spch-bub-inside:hover .point {
-  border-left: 0.5em solid #F00; 
+
+form.new_micropost {
+  margin-bottom: 2em;
 }
-*/
+
+form.new_micropost textarea {
+  height: 4em;
+  margin-bottom: 0;
+}
+
 
 /* CSS Style Guide
  *
