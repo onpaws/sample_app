@@ -18,6 +18,9 @@ class Micropost < ActiveRecord::Base
 	# => #<Micropost id: nil, content: "foobar", user_id: nil, created_at: nil, updated_at: nil> 
 
 	belongs_to :user
+	
+	validates :content, :presence => true, :length => { :maximum => 140 }
+	validates :user_id, :presence => true
 
 	default_scope :order => "microposts.created_at DESC"
 	#appends the SQL clause to the query rails uses. establishes a 'sane' default.
