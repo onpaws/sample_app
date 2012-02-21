@@ -48,11 +48,7 @@ describe Micropost do
 		it "should reject content that's too long" do
 			@user.microposts.build(:content => "a" * 141).should_not be_valid
 		end
-
-		it "should show a flash success message" do
-			flash[:success].should =~ /created/i
 		end
-	end
 end
 
 

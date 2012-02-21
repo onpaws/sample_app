@@ -290,7 +290,7 @@ div.field, div.action {
 	padding: 10px 0 9px 20px;
 	width: 600px;
 	font-style: italic;
-	border-radius: 0 10px 0 0;
+	/* border-radius: 0 10px 0 0; */
 }
 
 .success {

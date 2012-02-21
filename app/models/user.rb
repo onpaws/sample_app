@@ -51,7 +51,11 @@ class User < ActiveRecord::Base
 						 #:confirmation in a validates statement adds an "_confirmation" virtual attribute
 						 :length => { :within => 6..64 }
 						 #:length => { :minimum => 6, :maximum => 64 } also works
-
+	def feed
+		#Micropost.all				#returns all microposts across users
+		#self.microposts			#unless we are assigning to it we can leave off self.
+		Micropost.where("user_id = ?", id) #question mark ensures whatever comes after is automatically escaped
+	end
 
 
 	def has_password?(submitted_password)
