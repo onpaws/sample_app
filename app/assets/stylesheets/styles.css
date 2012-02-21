@@ -388,20 +388,25 @@ table.microposts tr td.micropost span.timestamp {
   font-size: 85%;
   color: #666;
 }
-
+div.user_info {
+	margin-left: 100px;
+	width: 200px;
+}
 div.user_info img {
   padding-right: 0.1em;
+  float: left;
+  margin-right: 10px;
 }
 
 div.user_info a {
   text-decoration: none;
 }
 
-div.user_info span.user_name {
-  position: absolute;
+div.user_info p.user_name {
+  /* position: absolute; */
 }
 
-div.user_info span.microposts {
+div.user_info p.microposts {
   font-size: 80%;
 }
 

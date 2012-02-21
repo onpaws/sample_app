@@ -1,3 +1,18 @@
+<% if signed_in? %>
+
+	<table class="front" summary="for authed users">
+		<tr>
+			<td class="main">
+				<h1 class="micropost">What's up?</h1>
+				<%= render 'shared/micropost_form' %>
+			</td>
+			<td class="sidebar">
+				<%= render 'shared/user_info' %>
+			</td>
+		</tr>
+	</table>
+
+<% else %>
 <article id="main">
 <h1>The Sample App</h1>
 <p>This is the home page for the site. Hello.</p>
@@ -9,4 +24,4 @@
 	Asdf
 </aside>
 
-
+<% end %>

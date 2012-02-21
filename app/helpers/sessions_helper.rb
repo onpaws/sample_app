@@ -33,6 +33,10 @@ module SessionsHelper
 		user == current_user
 	end
 
+	def authenticate #copied from users_controller per lesson 11 manipulating microposts @ 7:15
+		deny_access unless signed_in? #deny_access() is defined in sessions_helper.rb
+	end
+
 	def deny_access
 		store_location
 		redirect_to signin_path, :notice => "Please sign in to access this page."
