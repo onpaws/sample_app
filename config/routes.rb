@@ -1,4 +1,6 @@
-SampleApp::Application.routes.draw do
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   resources :users		#gives us all the REST-ful URLs (new, show, etc)
   resources :sessions, :only => [:new, :create, :destroy]	#restrict to new, create, and destroy only
   resources :microposts, :only => [:create, :destroy]
@@ -11,17 +13,16 @@ SampleApp::Application.routes.draw do
 	
   # mod_rewrite, Rails style
   # pages#contact = controller#action (new to rails 3, merged from MERB)
-  match '/contact', :to => "pages#contact"
-  match '/about', :to => "pages#about"
-  match '/help', :to => "pages#help"
-  match '/signup', :to => "users#new"
+  get '/contact', :to => "pages#contact"
+  get '/about', :to => "pages#about"
+  get '/help', :to => "pages#help"
+  get '/signup', :to => "users#new"
   #match 'signup' gives us the named route signup_path that we use in link_to
 
-  match '/signin', :to => "sessions#new"
-  match '/login', :to => "sessions#new"
-  match '/signout', :to => "sessions#destroy"
-  match '/logout', :to => "sessions#destroy"
-
+  post '/signin', :to => "sessions#new"
+  post '/login', :to => "sessions#new"
+  post '/signout', :to => "sessions#destroy"
+  post '/logout', :to => "sessions#destroy"
 
   #typos lead to Routing Error uninitialized ____Controller
   #i.e. if you use user#new instead of users#new
@@ -94,3 +95,7 @@ SampleApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
+
+# SampleApp::Application.routes.draw do 
+# ...

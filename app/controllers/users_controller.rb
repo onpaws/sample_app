@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :only => [:edit, :update, :index, :destroy]
+	before_action :authenticate, :only => [:edit, :update, :index, :destroy]
 		#before_filter gets a function that returns true or false
 		#second param (options hash) limits which actions get the filter
-	before_filter :correct_user, :only => [:edit, :update] 
-	before_filter :admin_user, :only => :destroy
+	before_action :correct_user, :only => [:edit, :update] 
+	before_action :admin_user, :only => :destroy
 
   def index
 	  @users = User.paginate(:page => params[:page])

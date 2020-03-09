@@ -3,29 +3,25 @@
 	<head>
 		<title><%= title %></title>
 		<%# for cross site request forgery protection %>
-		<%= csrf_meta_tag %>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
 
 		<%# rails 3.1 serves all CSS files in app/assets/stylesheets %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<%= stylesheet_link_tag "styles" %>
-		<%= javascript_include_tag "application" %>
-
-		<!--[if lt IE 9]>
-		<%= stylesheet_link_tag 'IE_pre9' %>
-		<%= javascript_include_tag 'html5shiv.js' %>
-		<![endif]-->
 	</head>
 	<body>
 	<div id="container">
-		<%= render 'layouts/header+nav' %>
+		<%= render 'shared/header' %>
 		<div id="content">
 		<% flash.each do |key, value| %>
 			<div class="flash <%= key %>"><%= value %></div>
 		<% end %>
 		<%= yield %>
-		<%= render 'layouts/footer' %>
+		<%= render 'shared/footer' %>
 		<%= debug(params) if Rails.env.development? %>
 		</div> <!-- end page content section -->
 	</div> <!-- end container div -->
 	</body>
 </html>
-
