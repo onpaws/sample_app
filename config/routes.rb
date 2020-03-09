@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   get '/signup', :to => "users#new"
   #match 'signup' gives us the named route signup_path that we use in link_to
 
-  post '/signin', :to => "sessions#new"
-  post '/login', :to => "sessions#new"
-  post '/signout', :to => "sessions#destroy"
-  post '/logout', :to => "sessions#destroy"
+  get '/signin', :to => "sessions#new"
+  get '/login', :to => "sessions#new"
+  get '/signout', :to => "sessions#destroy"
+  get '/logout', :to => "sessions#destroy"
 
   #typos lead to Routing Error uninitialized ____Controller
   #i.e. if you use user#new instead of users#new

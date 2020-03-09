@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[4.2]
       t.string :email
 
       t.timestamps
-	  #automanages the created_at and updated_at columns
+	    #automanages the created_at and updated_at columns
     end
   end
 end

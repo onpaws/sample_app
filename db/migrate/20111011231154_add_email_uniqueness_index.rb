@@ -6,13 +6,4 @@ class AddEmailUniquenessIndex < ActiveRecord::Migration[4.2]
 		#http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 		#http://guides.rubyonrails.org/migrations.html#writing-your-change-method
   end
-
-### OLD WAY ###
-#  def up
-#	add_index :users, :email, :unique => true
-# end
-
-#  def down
-#	  remove_index :users, :email
-#  end
 end

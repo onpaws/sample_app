@@ -96,14 +96,4 @@ class User < ActiveRecord::Base
 		def make_salt
 			secure_hash("#{Time.now.utc}--#{password}")
 		end
-
-		private
-    # Using a private method to encapsulate the permissible parameters is
-    # a good pattern since you'll be able to reuse the same permit
-    # list between create and update. Also, you can specialize this method
-    # with per-user checking of permissible attributes.
-    def user_params
-			params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
 end
