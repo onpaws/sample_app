@@ -133,7 +133,7 @@ body {
 }
 /* nav links shouldn't be :visited */
 .nav a:visited {
-	color: 
+	color: inherit;
 }
 
 #content {
