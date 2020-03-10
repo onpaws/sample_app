@@ -61,7 +61,7 @@ group :test do
   gem 'rspec'
   gem 'spork'
   gem 'webrat'
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
 end
 
 group :production do
