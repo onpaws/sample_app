@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: 111640d077836ced23cfffb882c93e40968ab9d9
-  specs:
-    annotate (2.7.5)
-      activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 13.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,6 +58,9 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.1.0)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -237,7 +232,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate!
+  annotate
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
@@ -265,7 +260,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.7.0p0
 
 BUNDLED WITH
-   1.17.2
+   2.1.2
